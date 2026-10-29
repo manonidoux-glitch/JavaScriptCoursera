@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBloom | Home</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #102f3b; color: white; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; padding: 16px 5%; background: #102f3b; }
+    nav h2 { margin: 0 22px 0 0; } nav a { color: white; text-decoration: none; } nav a:hover { text-decoration: underline; }
+    .search { display: flex; gap: 7px; flex-wrap: wrap; margin-left: auto; }
+    input { padding: 11px; border: 0; border-radius: 5px; min-width: 230px; }
+    button { padding: 11px 17px; background: #008b83; border: 0; color: white; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #00a69a; }
+    .hero { min-height: 75vh; background: linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.15)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=85') center/cover; display: flex; align-items: center; }
+    .hero-content { padding: 45px 8%; max-width: 700px; } h1 { font-size: clamp(35px,5vw,60px); margin: 0 0 20px; }
+    .hero p { font-size: 18px; line-height: 1.6; }
+    #recommendations { padding: 30px 8% 70px; scroll-margin-top: 15px; }
+    #results { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
+    .card { background: white; color: #19313a; border-radius: 10px; overflow: hidden; }
+    .card img { width: 100%; height: 190px; object-fit: cover; display: block; background: #dbe4e7; }
+    .card .details { padding: 17px; } .card h3 { margin-top: 0; } .card p { line-height: 1.5; }
+    #status { min-height: 20px; } [hidden] { display: none !important; }
+    @media (max-width: 700px) { .search { margin-left: 0; } nav { align-items: flex-start; } }
+  
+
+/* Recommendations results */
+
+#results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.recommendation-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.recommendation-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.recommendation-card h3 {
+    color: #102f3b;
+    margin: 12px 0;
+}
+
+.recommendation-card p {
+    color: #444;
+    line-height: 1.5;
+}
+
+@media (max-width: 650px) {
+    #results {
+        grid-template-columns: 1fr;
+    }
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>TravelBloom</h2>
+    <a href="travelRecommendation.html">Home</a>
+    <a href="travel_about.html">About Us</a>
+    <a href="travel_contact.html">Contact Us</a>
+    <div class="search">
+      <input type="search" id="searchInput" aria-label="Search destinations" placeholder="Enter a destination or keyword">
+      <button type="button" id="searchBtn">Search</button>
+      <button type="button" id="resetBtn">Reset</button>
+    </div>
+  </nav>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>EXPLORE DREAM DESTINATIONS</h1>
+        <p>Welcome to TravelBloom! Discover stunning beaches, historic temples, vibrant cities and unforgettable experiences around the world. Find your next adventure with our travel recommendations.</p>
+        <button type="button" id="exploreBtn">Explore Now</button>
+      </div>
+    </section>
+    <section id="recommendations" aria-live="polite">
+      <h2>Travel recommendations</h2>
+      <p id="status">Search for a destination, country, beach or temple.</p>
+      <section id="results"></section>
+    </section>
+  </main>
+  <script src="travelRecommendation.js"></script>
+</body>
+</html>
